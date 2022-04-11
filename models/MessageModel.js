@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const MessageSchema = mongoose.Schema(
   {
-    conversationId: {
+    senderId: {
       type: String,
     },
-    sender: {
+    receiverId: {
       type: String,
     },
     text: {
