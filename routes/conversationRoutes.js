@@ -10,12 +10,10 @@ const {
 
 const router = express.Router();
 
-router.route("/conversation").post(New_Conversation);
-router.route("/conversation/:userId").get(Get_Conversation);
 
 //Message_Routes
 
 router.route("/Add_message").post(Add_new_message);
-router.route("/message/:conversationId").get(Get_Message);
+router.route("/message").post(Get_Message);
 
 module.exports = router;

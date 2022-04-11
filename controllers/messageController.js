@@ -29,9 +29,13 @@ exports.Add_new_message = async (req, res) => {
   // }
 };
 exports.Get_Message = async (req, res) => {
-  console.log(req.params.userId);
+  const senderId = req.body.senderId;
+  const receiverId = req.body.receiverId;
   const message = await Message.find({
-    conversationId: req.params.conversationId,
+    $or: [
+      { senderId: senderId, receiverId: receiverId },
+      { senderId: receiverId, receiverId: senderId },
+    ],
   });
   try {
     res.status(200).json(message);
